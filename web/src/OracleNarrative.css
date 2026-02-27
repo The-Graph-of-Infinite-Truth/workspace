@@ -1,0 +1,50 @@
+.oracle-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.85);
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  z-index: 10;
+  text-align: center;
+}
+
+.oracle-title {
+  position: absolute;
+  top: 40px;
+  font-size: 1.2rem;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  font-weight: 300;
+  opacity: 0.7;
+}
+
+.oracle-text {
+  font-size: 2.5rem;
+  font-weight: 200;
+  max-width: 800px;
+  line-height: 1.5;
+  animation: fade-in-out 4s ease-in-out infinite;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+.oracle-footer {
+  position: absolute;
+  bottom: 40px;
+  font-size: 0.9rem;
+  letter-spacing: 0.2em;
+  opacity: 0.5;
+}
+
+@keyframes fade-in-out {
+  0% { opacity: 0; transform: translateY(10px); }
+  20% { opacity: 1; transform: translateY(0); }
+  80% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-10px); }
+}
