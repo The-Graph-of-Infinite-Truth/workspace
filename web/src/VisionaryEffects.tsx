@@ -46,7 +46,7 @@ export function VisionaryEffects() {
                 <meshBasicMaterial toneMapped={false} />
             </instancedMesh>
 
-            <EffectComposer disableNormalPass>
+            <EffectComposer>
                 <Bloom luminanceThreshold={0.2} mipmapBlur intensity={1.5} />
                 <Noise opacity={0.05} />
             </EffectComposer>

@@ -1,3 +1,4 @@
+import { Canvas } from '@react-three/fiber';
 import { NetworkUniverse } from './NetworkUniverse';
 import { VisionaryEffects } from './VisionaryEffects';
 import { OracleNarrative } from './OracleNarrative';
