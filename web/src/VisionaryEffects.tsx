@@ -59,16 +59,14 @@ export function VisionaryEffects() {
                 <meshBasicMaterial toneMapped={false} />
             </instancedMesh>
 
-            <EffectComposer disableNormalPass>
+            <EffectComposer>
                 <Bloom luminanceThreshold={0.2} mipmapBlur intensity={conflictActive ? 3.5 : 1.5} />
                 <Noise opacity={0.05} />
-                {conflictActive && (
-                    <ChromaticAberration
-                        offset={new THREE.Vector2(0.03, 0.03)}
-                        radialModulation={false}
-                        modulationOffset={0}
-                    />
-                )}
+                <ChromaticAberration
+                    offset={conflictActive ? new THREE.Vector2(0.03, 0.03) : new THREE.Vector2(0, 0)}
+                    radialModulation={false}
+                    modulationOffset={0}
+                />
             </EffectComposer>
         </>
     );
