@@ -1,5 +1,5 @@
-import { EffectComposer, Bloom, Noise } from '@react-three/postprocessing';
-import { useRef } from 'react';
+import { EffectComposer, Bloom, Noise, ChromaticAberration } from '@react-three/postprocessing';
+import { useRef, useState, useEffect } from 'react';
 import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 
@@ -7,6 +7,19 @@ const PARTICLE_COUNT = 700;
 
 export function VisionaryEffects() {
     const meshRef = useRef<THREE.InstancedMesh>(null);
+    const [conflictActive, setConflictActive] = useState(false);
+
+    useEffect(() => {
+        const bc = new BroadcastChannel('nexus');
+        bc.onmessage = (event) => {
+            // Flash on Architect anomalies or User interventions
+            if (event.data.type === 'cluster_formed' || event.data.type === 'user_intervention') {
+                setConflictActive(true);
+                setTimeout(() => setConflictActive(false), 400); // 400ms flash
+            }
+        };
+        return () => bc.close();
+    }, []);
 
     const dummy = new THREE.Object3D();
 
@@ -47,8 +60,15 @@ export function VisionaryEffects() {
             </instancedMesh>
 
             <EffectComposer disableNormalPass>
-                <Bloom luminanceThreshold={0.2} mipmapBlur intensity={1.5} />
+                <Bloom luminanceThreshold={0.2} mipmapBlur intensity={conflictActive ? 3.5 : 1.5} />
                 <Noise opacity={0.05} />
+                {conflictActive && (
+                    <ChromaticAberration
+                        offset={new THREE.Vector2(0.03, 0.03)}
+                        radialModulation={false}
+                        modulationOffset={0}
+                    />
+                )}
             </EffectComposer>
         </>
     );
