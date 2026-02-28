@@ -1,0 +1,77 @@
+.world-toggle-btn {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    background: transparent;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 10px 20px;
+    font-family: inherit;
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    z-index: 50;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(4px);
+}
+
+.world-toggle-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.8);
+}
+
+.world-panel {
+    position: absolute;
+    top: 0;
+    right: -400px;
+    width: 400px;
+    height: 100vh;
+    background: rgba(5, 5, 16, 0.85);
+    backdrop-filter: blur(10px);
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 40;
+    transition: right 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    color: #fff;
+    overflow-y: auto;
+}
+
+.world-panel.open {
+    right: 0;
+}
+
+.world-content {
+    padding: 100px 40px 40px 40px;
+}
+
+.world-content h2 {
+    font-size: 1.5rem;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    margin-bottom: 10px;
+}
+
+.world-content .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.6;
+    margin-bottom: 40px;
+}
+
+.world-content .section {
+    margin-bottom: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+}
+
+.world-content h3 {
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: #00ffff;
+    margin-bottom: 15px;
+}
+
+.world-content p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    opacity: 0.8;
+    font-weight: 200;
+}
