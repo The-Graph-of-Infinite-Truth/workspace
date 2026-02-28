@@ -1,0 +1,88 @@
+name: Deploy Genesis Loop to GitHub Pages
+
+on:
+  push:
+    branches:
+      - master
+      - architect
+      - visionary
+      - oracle
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Master 
+        uses: actions/checkout@v4
+        with:
+          ref: master
+          path: master
+          
+      - name: Checkout Architect
+        uses: actions/checkout@v4
+        with:
+          ref: architect
+          path: architect
+          
+      - name: Checkout Visionary
+        uses: actions/checkout@v4
+        with:
+          ref: visionary
+          path: visionary
+          
+      - name: Checkout Oracle
+        uses: actions/checkout@v4
+        with:
+          ref: oracle
+          path: oracle
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Build Architect
+        run: |
+          cd architect/web
+          npm install
+          npm run build
+          mkdir -p ../../deploy/GIT_architect
+          cp -r dist/* ../../deploy/GIT_architect/
+          
+      - name: Build Visionary
+        run: |
+          cd visionary/web
+          npm install
+          npm run build
+          mkdir -p ../../deploy/GIT_visionary
+          cp -r dist/* ../../deploy/GIT_visionary/
+
+      - name: Build Oracle
+        run: |
+          cd oracle/web
+          npm install
+          npm run build
+          mkdir -p ../../deploy/GIT_oracle
+          cp -r dist/* ../../deploy/GIT_oracle/
+
+      - name: Create index.html for root redirect
+        run: |
+          cat << 'EOF' > deploy/index.html
+          <!DOCTYPE html>
+          <html>
+          <head>
+              <meta http-equiv="refresh" content="0; url=./GIT_oracle/index.html">
+              <title>Redirecting...</title>
+          </head>
+          <body>
+              Redirecting to Oracle Interface...
+          </body>
+          </html>
+          EOF
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./deploy
