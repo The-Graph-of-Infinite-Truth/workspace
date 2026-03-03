@@ -68,6 +68,11 @@ jobs:
           mkdir -p ../../deploy/GIT_oracle
           cp -r dist/* ../../deploy/GIT_oracle/
 
+      - name: Copy Conversation Data
+        run: |
+          mkdir -p deploy/data
+          cp -r master/data/* deploy/data/
+
       - name: Create index.html for root redirect
         run: |
           cat << 'EOF' > deploy/index.html

@@ -1,0 +1,35 @@
+name: Dialectic Cycle
+
+on:
+  schedule:
+    - cron: '0 */6 * * *' # Every 6 hours
+  workflow_dispatch: # Manual trigger
+
+jobs:
+  reason:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      models: read
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run Dialectic Engine
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/dialectic-engine.js
+
+      - name: Commit and Push changes
+        run: |
+          git config --global user.name "The-Oracle-Bot"
+          git config --global user.email "oracle@thegraphofinfinitetruth.org"
+          git add data/conversations/*.json
+          git commit -m "chore: record dialectic cycle $(date +'%Y-%m-%d %H:%M')"
+          git push origin master
