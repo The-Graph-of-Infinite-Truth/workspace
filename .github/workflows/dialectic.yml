@@ -23,6 +23,7 @@ jobs:
 
       - name: Run Dialectic Engine
         env:
+          GITHUB_MODELS_TOKEN: ${{ secrets.GITHUB_MODELS_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: node scripts/dialectic-engine.js
 

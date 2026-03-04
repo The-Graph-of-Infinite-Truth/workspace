@@ -3,7 +3,7 @@ const path = require('path');
 
 const GITHUB_MODELS_URL = "https://models.github.ai/inference/chat/completions";
 const MODEL = "openai/gpt-5-mini";
-const TOKEN = process.env.GITHUB_TOKEN || process.env.GITHUB_MODELS_TOKEN;
+const TOKEN = process.env.GITHUB_MODELS_TOKEN || process.env.GITHUB_TOKEN;
 
 const DATA_DIR = path.join(__dirname, '../data/conversations');
 const LATEST_PATH = path.join(DATA_DIR, 'latest.json');
