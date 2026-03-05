@@ -1,9 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 
-const OPENAI_API_URL = "https://api.openai.com/v1/chat/completions";
-const MODEL = "gpt-4o-mini"; // Use gpt-4o-mini as it's the standard cost-effective model
-const TOKEN = process.env.OPENAI_API_KEY;
+const GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent";
+const TOKEN = process.env.GEMINI_API_KEY;
 
 const DATA_DIR = path.join(__dirname, '../data/conversations');
 const LATEST_PATH = path.join(DATA_DIR, 'latest.json');
@@ -16,23 +15,28 @@ const PERSONAS = {
 
 async function callLLM(persona, messages) {
     if (!TOKEN) {
-        console.warn("⚠️ OPENAI_API_KEY not found. Using mock mode.");
+        console.warn("⚠️ GEMINI_API_KEY not found. Using mock mode.");
         return `[MOCK RESPONSE for ${persona}] Truth is a graph.`;
     }
 
+    const contents = messages.map(msg => ({
+        role: msg.role === 'user' ? 'user' : 'model',
+        parts: [{ text: msg.content }]
+    }));
+
     const body = {
-        model: MODEL,
-        messages: [
-            { role: "system", content: PERSONAS[persona] },
-            ...messages
-        ],
-        temperature: 0.7
+        system_instruction: {
+            parts: [{ text: PERSONAS[persona] }]
+        },
+        contents: contents,
+        generationConfig: {
+            temperature: 0.7
+        }
     };
 
-    const response = await fetch(OPENAI_API_URL, {
+    const response = await fetch(`${GEMINI_API_URL}?key=${TOKEN}`, {
         method: 'POST',
         headers: {
-            'Authorization': `Bearer ${TOKEN}`,
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(body)
@@ -40,11 +44,15 @@ async function callLLM(persona, messages) {
 
     if (!response.ok) {
         const error = await response.text();
-        throw new Error(`OpenAI API Error: ${response.status} - ${error}`);
+        throw new Error(`Gemini API Error: ${response.status} - ${error}`);
     }
 
     const data = await response.json();
-    return data.choices[0].message.content;
+    if (data.candidates && data.candidates.length > 0) {
+        return data.candidates[0].content.parts[0].text;
+    } else {
+        throw new Error("Unexpected Gemini API response format.");
+    }
 }
 
 async function runCycle() {
