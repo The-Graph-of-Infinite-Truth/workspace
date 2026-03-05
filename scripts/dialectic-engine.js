@@ -107,9 +107,13 @@ async function runCycle() {
 
     conversation.converged_truth = oracleMerge;
 
-    // Extract Next Seed (very basic extraction)
-    const nextSeedMatch = oracleMerge.match(/(?:Next Seed|다음 씨앗|새로운 씨앗)[:\s]+(.+)/i);
-    conversation.next_seed = nextSeedMatch ? nextSeedMatch[1].trim() : seed; // Fallback to current seed if not found
+    // Extract Next Seed (more robust extraction for Gemini)
+    const nextSeedMatch = oracleMerge.match(/(?:Next Seed|새로운 씨앗|Next_Seed)[^\n]*\n+([\s\S]+)/i);
+    let extractedSeed = seed;
+    if (nextSeedMatch && nextSeedMatch[1]) {
+        extractedSeed = nextSeedMatch[1].replace(/[*_#]/g, '').trim();
+    }
+    conversation.next_seed = extractedSeed;
 
     // Save results
     const filename = `cycle_${String(cycleNum).padStart(3, '0')}.json`;
