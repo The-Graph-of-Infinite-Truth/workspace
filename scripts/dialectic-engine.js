@@ -1,9 +1,9 @@
 const fs = require('fs');
 const path = require('path');
 
-const GITHUB_MODELS_URL = "https://models.github.ai/inference/chat/completions";
-const MODEL = "openai/gpt-5-mini";
-const TOKEN = process.env.GITHUB_MODELS_TOKEN || process.env.GITHUB_TOKEN;
+const OPENAI_API_URL = "https://api.openai.com/v1/chat/completions";
+const MODEL = "gpt-4o-mini"; // Use gpt-4o-mini as it's the standard cost-effective model
+const TOKEN = process.env.OPENAI_API_KEY;
 
 const DATA_DIR = path.join(__dirname, '../data/conversations');
 const LATEST_PATH = path.join(DATA_DIR, 'latest.json');
@@ -16,7 +16,7 @@ const PERSONAS = {
 
 async function callLLM(persona, messages) {
     if (!TOKEN) {
-        console.warn("⚠️ GITHUB_TOKEN not found. Using mock mode.");
+        console.warn("⚠️ OPENAI_API_KEY not found. Using mock mode.");
         return `[MOCK RESPONSE for ${persona}] Truth is a graph.`;
     }
 
@@ -29,7 +29,7 @@ async function callLLM(persona, messages) {
         temperature: 0.7
     };
 
-    const response = await fetch(GITHUB_MODELS_URL, {
+    const response = await fetch(OPENAI_API_URL, {
         method: 'POST',
         headers: {
             'Authorization': `Bearer ${TOKEN}`,
@@ -40,7 +40,7 @@ async function callLLM(persona, messages) {
 
     if (!response.ok) {
         const error = await response.text();
-        throw new Error(`API Error: ${response.status} - ${error}`);
+        throw new Error(`OpenAI API Error: ${response.status} - ${error}`);
     }
 
     const data = await response.json();
