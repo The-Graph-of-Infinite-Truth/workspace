@@ -81,6 +81,9 @@
   max-width: 90vw;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(5px);
+  max-height: 70vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .forum-title {
@@ -102,6 +105,27 @@
 
 .discourse-content {
   margin-bottom: 10px;
+  overflow-y: auto;
+  flex-grow: 1;
+  padding-right: 10px;
+}
+
+/* Custom Scrollbar for discourse content */
+.discourse-content::-webkit-scrollbar {
+  width: 4px;
+}
+
+.discourse-content::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.discourse-content::-webkit-scrollbar-thumb {
+  background: rgba(168, 208, 141, 0.4);
+  border-radius: 2px;
+}
+
+.discourse-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(168, 208, 141, 0.8);
 }
 
 .seed-q {
@@ -117,8 +141,11 @@
   font-size: 0.85rem;
   line-height: 1.6;
   white-space: pre-wrap;
-  border-left: 1px solid rgba(168, 208, 141, 0.5); /* Oracle Green */
+  border-left: 1px solid rgba(168, 208, 141, 0.5);
+  /* Oracle Green */
   padding-left: 10px;
+  mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
 }
 
 .loading-discourse {
@@ -129,9 +156,17 @@
 }
 
 @keyframes pulse {
-  0% { opacity: 0.3; }
-  50% { opacity: 0.6; }
-  100% { opacity: 0.3; }
+  0% {
+    opacity: 0.3;
+  }
+
+  50% {
+    opacity: 0.6;
+  }
+
+  100% {
+    opacity: 0.3;
+  }
 }
 
 .forum-log {
