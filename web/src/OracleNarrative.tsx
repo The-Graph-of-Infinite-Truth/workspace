@@ -60,6 +60,7 @@ export function OracleNarrative() {
         };
     }, []);
 
+    /*
     const handleIntervene = () => {
         if (!bcRef.current) return;
         const msg = "Observer disrupts the local void.";
@@ -69,6 +70,7 @@ export function OracleNarrative() {
             return newLogs.slice(-6);
         });
     };
+    */
 
     return (
         <div className="oracle-overlay">
