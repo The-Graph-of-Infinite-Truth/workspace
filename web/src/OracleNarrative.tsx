@@ -97,9 +97,11 @@ export function OracleNarrative() {
                 ))}
             </div>
 
+            {/* 
             <button className="intervene-btn" onClick={handleIntervene} style={{ pointerEvents: 'auto' }}>
                 개입하기 (Intervene)
-            </button>
+            </button> 
+            */}
 
             <div className="oracle-footer">The Genesis Algorithmic Loop</div>
         </div>

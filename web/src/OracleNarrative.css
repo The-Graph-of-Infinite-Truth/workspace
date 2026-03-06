@@ -69,19 +69,21 @@
 
 .oracle-forum {
   position: absolute;
+  top: 15vh;
   bottom: 80px;
-  left: 40px;
+  left: 3vw;
   text-align: left;
   font-family: 'JetBrains Mono', 'Fira Code', monospace;
   font-size: 0.9rem;
   background: rgba(0, 0, 0, 0.6);
   padding: 15px;
   border-left: 2px solid rgba(255, 255, 255, 0.3);
-  width: 400px;
-  max-width: 90vw;
+  width: 450px;
+  max-width: 85vw;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(5px);
-  max-height: 70vh;
+  max-height: calc(100vh - 15vh - 100px);
+  /* Leave space for bottom elements */
   display: flex;
   flex-direction: column;
   pointer-events: auto;
