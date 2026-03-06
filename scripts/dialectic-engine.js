@@ -34,24 +34,44 @@ async function callLLM(persona, messages) {
         }
     };
 
-    const response = await fetch(`${GEMINI_API_URL}?key=${TOKEN}`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(body)
-    });
+    const MAX_RETRIES = 3;
+    let attempt = 0;
 
-    if (!response.ok) {
-        const error = await response.text();
-        throw new Error(`Gemini API Error: ${response.status} - ${error}`);
-    }
+    while (attempt < MAX_RETRIES) {
+        try {
+            const response = await fetch(`${GEMINI_API_URL}?key=${TOKEN}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(body)
+            });
 
-    const data = await response.json();
-    if (data.candidates && data.candidates.length > 0) {
-        return data.candidates[0].content.parts[0].text;
-    } else {
-        throw new Error("Unexpected Gemini API response format.");
+            if (!response.ok) {
+                const error = await response.text();
+                // 503 (Unavailable) or 429 (Too Many Requests) can happen on free tier
+                if (response.status === 503 || response.status === 429) {
+                    throw new Error(`Temporary Gemini API Error: ${response.status} - ${error}`);
+                }
+                // Other errors (like 400 Bad Request) should fail immediately
+                throw new Error(`Fatal Gemini API Error: ${response.status} - ${error}`);
+            }
+
+            const data = await response.json();
+            if (data.candidates && data.candidates.length > 0) {
+                return data.candidates[0].content.parts[0].text;
+            } else {
+                throw new Error("Unexpected Gemini API response format.");
+            }
+        } catch (e) {
+            attempt++;
+            if (attempt >= MAX_RETRIES || e.message.includes('Fatal')) {
+                throw e; // Give up
+            }
+            console.warn(`[Attempt ${attempt}/${MAX_RETRIES}] Gemini API busy. Waiting before retry... (${e.message})`);
+            // Exponential backoff: Base 5 seconds, max 15 seconds
+            await new Promise(resolve => setTimeout(resolve, 5000 * attempt));
+        }
     }
 }
 
