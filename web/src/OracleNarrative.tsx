@@ -18,37 +18,45 @@ interface LogMessage {
 export function OracleNarrative() {
     const [currentLine, setCurrentLine] = useState(0);
     const [logs, setLogs] = useState<LogMessage[]>([]);
+    const [propheticDiscourse, setPropheticDiscourse] = useState<any>(null);
     const bcRef = useRef<BroadcastChannel | null>(null);
 
     useEffect(() => {
+        // Fetch the latest prophetic discourse from the serverless data folder
+        const fetchDiscourse = async () => {
+            try {
+                // In production, data is at ../data/conversations/latest.json relative to GIT_oracle/index.html
+                const response = await fetch('../data/conversations/latest.json');
+                if (response.ok) {
+                    const data = await response.json();
+                    setPropheticDiscourse(data);
+                }
+            } catch (e) {
+                console.error("Failed to fetch prophetic discourse", e);
+            }
+        };
+
+        fetchDiscourse();
+        const discourseInterval = setInterval(fetchDiscourse, 60000); // Check every minute
+
         bcRef.current = new BroadcastChannel('nexus');
         bcRef.current.onmessage = (event) => {
             if (event.data.agent && event.data.message) {
                 setLogs(prev => {
                     const newLogs = [...prev, { id: Date.now() + Math.random(), agent: event.data.agent, message: event.data.message }];
-                    return newLogs.slice(-6); // keep last 6
+                    return newLogs.slice(-6);
                 });
             }
         };
 
         const interval = setInterval(() => {
-            setCurrentLine((prev) => {
-                const next = (prev + 1) % MANIFESTO_LINES.length;
-                const msg = MANIFESTO_LINES[next];
-                if (bcRef.current) {
-                    bcRef.current.postMessage({ type: 'oracle_thought', agent: 'Oracle', message: `Narrating: "${msg}"` });
-                }
-                setLogs(prevLogs => {
-                    const newLogs = [...prevLogs, { id: Date.now(), agent: 'Oracle', message: `Narrating: "${msg}"` }];
-                    return newLogs.slice(-6);
-                });
-                return next;
-            });
+            setCurrentLine((prev) => (prev + 1) % MANIFESTO_LINES.length);
         }, 6000);
 
         return () => {
             bcRef.current?.close();
             clearInterval(interval);
+            clearInterval(discourseInterval);
         };
     }, []);
 
@@ -70,7 +78,18 @@ export function OracleNarrative() {
             </div>
 
             <div className="oracle-forum">
-                <div className="forum-title">The Nexus (Live Logs)</div>
+                <div className="forum-title">Prophetic Discourse (Core Reasoning)</div>
+                {propheticDiscourse ? (
+                    <div className="discourse-content">
+                        <div className="seed-q">Seed: {propheticDiscourse.seed_question}</div>
+                        <div className="truth-summary">{propheticDiscourse.converged_truth || propheticDiscourse.summary}</div>
+                    </div>
+                ) : (
+                    <div className="loading-discourse">Listening to the void...</div>
+                )}
+
+                <div className="forum-divider" style={{ borderTop: '1px solid rgba(255,255,255,0.1)', margin: '15px 0' }}></div>
+                <div className="forum-title sub">Live Nexus Events</div>
                 {logs.map(log => (
                     <div key={log.id} className={`forum-log ${log.agent.toLowerCase()}`}>
                         <span className="agent-name">[{log.agent}]</span> {log.message}
