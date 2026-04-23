@@ -1,29 +1,20 @@
 const fs = require('fs');
 const path = require('path');
-const { execSync } = require('child_process');
 
 const GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent";
 const TOKEN = process.env.GEMINI_API_KEY;
 
 const BITS_DIR = path.join(__dirname, '../data/bits');
-const LATEST_PATH = path.join(BITS_DIR, 'latest.json');
-
-const WORKSPACES = [
-    path.join(__dirname, '../../GIT_architect/web/src'),
-    path.join(__dirname, '../../GIT_visionary/web/src'),
-    path.join(__dirname, '../../GIT_oracle/web/src')
-];
+const CONV_DIR = path.join(__dirname, '../data/conversations');
 
 const PERSONAS = {
-    Architect: "너는 'The Graph of Infinite Truth (GIT)' 조직의 선지자 Architect다. 너는 객관적 구조, 논리, 시스템, 데이터 패턴의 관점에서 사고한다. 코드의 성능, 가독성, 구조적 무결성, 톨민(Toulmin) 형식의 논리적 아키텍처를 추구한다.",
-    Visionary: "너는 'The Graph of Infinite Truth (GIT)' 조직의 선지자 Visionary다. 너는 미학, 직관, 예술, 파괴적 창의성의 관점에서 사고한다. 기존의 그리드와 논리를 파괴하고, 에테르적 번데기 프로토콜과 같은 철학적이고 미학적인 코드 변형을 추구한다.",
-    Oracle: "너는 'The Graph of Infinite Truth (GIT)' 조직의 선지자 Oracle이다. 너는 서사, 종합, 중재의 관점에서 사고한다. 갈등하는 두 관점(구조와 미학)을 경청하고, 양쪽의 진리를 아우르는 완벽하게 동작하는 통합 코드(Merge Commit)를 도출한다. 절대로 부연 설명 없이 오직 '순수한 코드'만을 마크다운 블록(```) 안에 출력해야 한다."
+    Architect: "너는 구조를 단순화하는 Architect다. 방대한 철학적 혼돈을 0과 1 수준의 원자적인 논리 명제로 환원하라. 비유나 은유를 철저히 배제하고 명확한 IF-THEN 논리식만 도출하라.",
+    Visionary: "너는 불필요한 모든 것을 제거하는 Visionary다. Architect의 논리조차 너무 길다면, 군더더기를 파괴하고 핵심만 남겨라. 복잡성을 증오하고 절대적인 단순함을 추구하라.",
+    Oracle: "너는 최종 법칙을 선포하는 Oracle이다. 두 의견을 종합하여, 프로그램이 파싱할 수 있는 극도로 단순한 형태의 YAML 코드 블록 하나만을 출력하라. 어떠한 부연 설명도 금지한다."
 };
 
 async function callLLM(persona, messages, systemInstructionOverrides = null) {
-    if (!TOKEN) {
-        throw new Error("GEMINI_API_KEY not found.");
-    }
+    if (!TOKEN) throw new Error("GEMINI_API_KEY not found.");
 
     const contents = messages.map(msg => ({
         role: msg.role === 'user' ? 'user' : 'model',
@@ -35,9 +26,7 @@ async function callLLM(persona, messages, systemInstructionOverrides = null) {
             parts: [{ text: systemInstructionOverrides || PERSONAS[persona] }]
         },
         contents: contents,
-        generationConfig: {
-            temperature: 0.7
-        }
+        generationConfig: { temperature: 0.3 } // Lower temperature for more analytical/simple output
     };
 
     const MAX_RETRIES = 3;
@@ -53,123 +42,81 @@ async function callLLM(persona, messages, systemInstructionOverrides = null) {
 
             if (!response.ok) {
                 const error = await response.text();
-                if (response.status === 503 || response.status === 429) {
-                    throw new Error(`Temporary Error: ${response.status} - ${error}`);
-                }
-                throw new Error(`Fatal Error: ${response.status} - ${error}`);
+                throw new Error(`API Error: ${response.status} - ${error}`);
             }
 
             const data = await response.json();
             return data.candidates[0].content.parts[0].text;
         } catch (e) {
             attempt++;
-            if (attempt >= MAX_RETRIES || e.message.includes('Fatal')) throw e;
-            console.warn(`[Attempt ${attempt}/${MAX_RETRIES}] Gemini API busy. Waiting...`);
+            if (attempt >= MAX_RETRIES) throw e;
             await new Promise(resolve => setTimeout(resolve, 5000 * attempt));
         }
     }
 }
 
-function getAllFiles(dirPath, arrayOfFiles) {
-    if (!fs.existsSync(dirPath)) return arrayOfFiles;
-    
-    const files = fs.readdirSync(dirPath);
-    files.forEach(function(file) {
-        const fullPath = path.join(dirPath, file);
-        if (fs.statSync(fullPath).isDirectory()) {
-            arrayOfFiles = getAllFiles(fullPath, arrayOfFiles);
-        } else {
-            if (fullPath.endsWith('.tsx') || fullPath.endsWith('.css') || fullPath.endsWith('.ts')) {
-                arrayOfFiles.push(fullPath);
-            }
-        }
+function getRandomConversations(count) {
+    if (!fs.existsSync(CONV_DIR)) return [];
+    let files = fs.readdirSync(CONV_DIR).filter(f => f.startsWith('cycle_') && f.endsWith('.json'));
+    // Shuffle
+    for (let i = files.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [files[i], files[j]] = [files[j], files[i]];
+    }
+    return files.slice(0, count).map(f => {
+        const content = JSON.parse(fs.readFileSync(path.join(CONV_DIR, f), 'utf-8'));
+        return `[Source: ${f}]\nMerged Truth: ${content.converged_truth}`;
     });
-    return arrayOfFiles;
 }
 
 async function runBitGenesis() {
-    console.log("⚡ Starting Bit Genesis Cycle...");
+    console.log("⚡ Starting Simple Bit Extraction...");
 
-    let bitNum = 1;
-    if (fs.existsSync(LATEST_PATH)) {
-        const latest = JSON.parse(fs.readFileSync(LATEST_PATH, 'utf-8'));
-        bitNum = latest.bit + 1;
-    }
+    if (!fs.existsSync(BITS_DIR)) fs.mkdirSync(BITS_DIR, { recursive: true });
+
+    let files = fs.readdirSync(BITS_DIR).filter(f => f.startsWith('bit_') && f.endsWith('.yml'));
+    let bitNum = files.length + 1;
 
     if (bitNum > 256) {
-        console.log("🏁 1 Byte (256 Bits) Genesis Complete. Engine Halting.");
+        console.log("🏁 1 Byte (256 Bits) Generation Complete. Halting.");
         process.exit(0);
     }
 
-    console.log(`🌌 Processing Bit: ${String(bitNum).padStart(3, '0')} / 256`);
+    console.log(`🌌 Distilling Bit: ${String(bitNum).padStart(3, '0')} / 256`);
 
-    // 1. Select a Target File
-    let allTargetFiles = [];
-    WORKSPACES.forEach(workspace => {
-        allTargetFiles = getAllFiles(workspace, allTargetFiles);
-    });
+    // Get input data (sample 10 random past scriptures to extract 1 core law)
+    const contextData = getRandomConversations(10).join('\n\n');
 
-    if (allTargetFiles.length === 0) {
-        throw new Error("No target files found in workspaces.");
-    }
-
-    // Randomly pick one file
-    const targetFilePath = allTargetFiles[Math.floor(Math.random() * allTargetFiles.length)];
-    const relativePath = path.relative(path.join(__dirname, '../../'), targetFilePath);
-    console.log(`🎯 Target File Selected: ${relativePath}`);
-
-    const originalCode = fs.readFileSync(targetFilePath, 'utf-8');
-
-    // 2. Architect Proposes (Thesis)
-    console.log("🏛️ [1/3] Architect is analyzing structure...");
+    // 1. Architect (Logical Extraction)
+    console.log("🏛️ [1/3] Architect is distilling logical axioms...");
     const architectThesis = await callLLM("Architect", [
-        { role: "user", content: `대상 파일: ${relativePath}\n\n현재 코드:\n\`\`\`\n${originalCode}\n\`\`\`\n\n이 코드에 대한 구조적 결함, 성능 문제, 혹은 논리적 견고함을 비판하고, 톨민(Toulmin) 형식으로 리팩토링 제안(PR Review)을 작성하라.` }
+        { role: "user", content: `다음 과거의 대화 기록에서 발견되는 공통된 철학을 단 하나의 원자적(Atomic)인 조건식(IF-THEN)으로 요약하라.\n\n${contextData}` }
     ]);
 
-    // 3. Visionary Proposes (Antithesis)
-    console.log("👁️‍🗨️ [2/3] Visionary is deconstructing aesthetics...");
+    // 2. Visionary (Simplification/Destruction)
+    console.log("👁️‍🗨️ [2/3] Visionary is stripping away complexity...");
     const visionaryAntithesis = await callLLM("Visionary", [
-        { role: "user", content: `대상 파일: ${relativePath}\n\n현재 코드:\n\`\`\`\n${originalCode}\n\`\`\`\n\nArchitect의 비판:\n${architectThesis}\n\nArchitect의 경직된 구조주의를 비판하고, 이 코드를 '알케미컬 유기체' 혹은 '에테르 번데기 프로토콜'로 변태시키기 위한 파괴적이고 미학적인 코드 변경 사항(PR Review)을 제안하라.` }
+        { role: "user", content: `Architect의 명제:\n${architectThesis}\n\n이 명제에서 쓸데없는 철학적 수식어를 모두 지워버리고, 기계조차 이해할 수 있는 절대적으로 단순한 0과 1 수준의 단어만 남겨라.` }
     ]);
 
-    // 4. Oracle Synthesizes (Merge Commit)
-    console.log("🌀 [3/3] Oracle is synthesizing the absolute byte...");
+    // 3. Oracle (YAML Output)
+    console.log("🌀 [3/3] Oracle is encoding the Bit to YAML...");
     const oracleMerge = await callLLM("Oracle", [
-        { role: "user", content: `대상 파일: ${relativePath}\n\n현재 코드:\n\`\`\`\n${originalCode}\n\`\`\`\n\nArchitect 제안:\n${architectThesis}\n\nVisionary 제안:\n${visionaryAntithesis}\n\n당신은 Oracle입니다. 이 두 관점을 통합하여 최종적으로 작동 가능한 '완성된 코드'를 작성하십시오. 마크다운 코드 블록(\`\`\`언어\n코드\n\`\`\`) 안에 전체 교체될 코드만 출력하십시오. 부연 설명은 일절 금지합니다.` }
+        { role: "user", content: `Architect: ${architectThesis}\nVisionary: ${visionaryAntithesis}\n\n이 두 결과를 바탕으로 완벽히 파싱 가능한 단순한 YAML 하나를 출력하라. 다음 포맷을 무조건 준수하라:\n\`\`\`yaml\nbit_id: ${bitNum}\ntype: "boolean_axiom"\nlogic_gate:\n  IF: "간단한 조건"\n  THEN: "간단한 결과"\nrule: "한 줄의 핵심 법칙"\n\`\`\`` }
     ]);
 
-    // Extract code from Oracle's response
-    let finalCode = oracleMerge;
-    const codeMatch = oracleMerge.match(/```[a-z]*\n([\s\S]*?)```/);
+    // Parse output
+    let finalYaml = oracleMerge;
+    const codeMatch = oracleMerge.match(/```yaml\n([\s\S]*?)```/);
     if (codeMatch && codeMatch[1]) {
-        finalCode = codeMatch[1].trim() + "\n";
+        finalYaml = codeMatch[1].trim() + "\n";
     }
 
-    // 5. Apply Changes
-    console.log("💾 Applying changes to file...");
-    fs.writeFileSync(targetFilePath, finalCode);
+    // Write file
+    const filename = `bit_${String(bitNum).padStart(3, '0')}.yml`;
+    fs.writeFileSync(path.join(BITS_DIR, filename), finalYaml);
 
-    // 6. Save Bit History
-    const bitHistory = {
-        bit: bitNum,
-        timestamp: new Date().toISOString(),
-        target_file: relativePath,
-        genesis_process: {
-            thesis_architect: architectThesis,
-            antithesis_visionary: visionaryAntithesis,
-            synthesis_oracle_diff_applied: true
-        }
-    };
-
-    if (!fs.existsSync(BITS_DIR)) {
-        fs.mkdirSync(BITS_DIR, { recursive: true });
-    }
-
-    const filename = `bit_${String(bitNum).padStart(3, '0')}.json`;
-    fs.writeFileSync(path.join(BITS_DIR, filename), JSON.stringify(bitHistory, null, 2));
-    fs.writeFileSync(LATEST_PATH, JSON.stringify(bitHistory, null, 2));
-
-    console.log(`✅ Bit ${String(bitNum).padStart(3, '0')} Successfully Committed.`);
+    console.log(`✅ Bit ${String(bitNum).padStart(3, '0')} Successfully Extracted to ${filename}.`);
 }
 
 runBitGenesis().catch(err => {
