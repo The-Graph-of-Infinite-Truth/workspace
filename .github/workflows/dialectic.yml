@@ -2,7 +2,7 @@ name: Dialectic Cycle
 
 on:
   schedule:
-    - cron: '0 */6 * * *' # Every 6 hours
+    - cron: '0 * * * *' # Every 1 hour
   workflow_dispatch: # Manual trigger
 
 jobs:
@@ -21,15 +21,15 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Run Dialectic Engine
+      - name: Run Bit Engine (256 Genesis)
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-        run: node scripts/dialectic-engine.js
+        run: node scripts/bit-engine.js
 
       - name: Commit and Push changes
         run: |
           git config --global user.name "The-Oracle-Bot"
           git config --global user.email "oracle@thegraphofinfinitetruth.org"
-          git add data/conversations/*.json
-          git commit -m "chore: record dialectic cycle $(date +'%Y-%m-%d %H:%M')"
+          git add data/bits/*.json
+          git commit -m "chore(genesis): embody bit cycle $(date +'%Y-%m-%d %H:%M')" || echo "No changes to commit"
           git push origin master
