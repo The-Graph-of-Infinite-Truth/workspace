@@ -1,0 +1,6 @@
+bit_id: 14
+type: "boolean_axiom"
+logic_gate:
+  IF: "대립하는 요소들이 동적으로 공명할 때"
+  THEN: "변혁적 진화가 발생한다"
+rule: "대립하는 요소들의 동적 공명은 변혁적 진화를 촉발한다."
