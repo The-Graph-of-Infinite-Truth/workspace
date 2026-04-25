@@ -1,0 +1,6 @@
+bit_id: 13
+type: "boolean_axiom"
+logic_gate:
+  IF: "데이터와 필요가 수렴하면"
+  THEN: "변형이 발생한다"
+rule: "데이터와 필요의 수렴은 변형을 야기한다."
