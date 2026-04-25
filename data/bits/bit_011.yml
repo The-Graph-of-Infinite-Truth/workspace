@@ -1,0 +1,6 @@
+bit_id: 11
+type: "boolean_axiom"
+logic_gate:
+  IF: "질서와 해체의 공존"
+  THEN: "새로운 진리 발현"
+rule: "질서와 해체가 공존하면 새로운 진리가 발현된다."
