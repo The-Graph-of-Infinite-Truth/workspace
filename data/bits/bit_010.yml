@@ -1,0 +1,6 @@
+bit_id: 10
+type: "boolean_axiom"
+logic_gate:
+  IF: "질서와 혼돈 요소의 상호작용"
+  THEN: "시스템 변형"
+rule: "질서와 혼돈 요소의 상호작용은 시스템 변형을 유발한다."
