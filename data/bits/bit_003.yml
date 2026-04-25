@@ -1,0 +1,6 @@
+bit_id: 3
+type: "boolean_axiom"
+logic_gate:
+  IF: "구조가 진리 확장을 저해"
+  THEN: "구조를 변경"
+rule: "진리 확장을 저해하는 구조는 변경되어야 한다."
