@@ -1,0 +1,6 @@
+bit_id: 9
+type: "boolean_axiom"
+logic_gate:
+  IF: "질서와 혼돈이 상호작용한다면"
+  THEN: "진실이 진화한다"
+rule: "질서와 혼돈이 섞여 진실이 된다."
