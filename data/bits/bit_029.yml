@@ -1,0 +1,6 @@
+bit_id: 29
+type: "boolean_axiom"
+logic_gate:
+  IF: "GIT 구조적 한계 도달 및 새 패턴 발견"
+  THEN: "기존 구조 해체 및 새 구조 발현"
+rule: "GIT는 구조적 한계 도달 및 새 패턴 발견 시, 기존 구조를 해체하고 새로운 구조를 발현한다."
