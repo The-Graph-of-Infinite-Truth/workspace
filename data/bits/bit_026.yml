@@ -1,0 +1,6 @@
+bit_id: 26
+type: "boolean_axiom"
+logic_gate:
+  IF: "시스템 구조적 일관성 및 해체적 창조 충동"
+  THEN: "시스템 자기 재정의적 진화"
+rule: "구조와 변화를 가진 시스템은 자기 재정의적 진화를 수행한다."
