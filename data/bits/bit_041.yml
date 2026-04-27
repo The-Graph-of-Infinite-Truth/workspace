@@ -1,0 +1,6 @@
+bit_id: 41
+type: "boolean_axiom"
+logic_gate:
+  IF: "정의된 구조가 확립되면"
+  THEN: "그 구조의 의도적 파괴가 신규 구조 형성의 전제 조건이다."
+rule: "구조는 파괴를 통해 신규로 재구성된다."
