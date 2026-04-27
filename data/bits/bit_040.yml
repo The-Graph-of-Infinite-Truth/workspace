@@ -1,0 +1,6 @@
+bit_id: 40
+type: "boolean_axiom"
+logic_gate:
+  IF: "시스템 진화"
+  THEN: "기존 구조 해체"
+rule: "진화는 기존 구조 해체를 요구한다."
