@@ -1,0 +1,6 @@
+bit_id: 45
+type: "boolean_axiom"
+logic_gate:
+  IF: "FIXED AND VARY"
+  THEN: "TRUTH"
+rule: "FIXED AND VARY -> TRUTH"
