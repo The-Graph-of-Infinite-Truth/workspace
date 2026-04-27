@@ -1,0 +1,6 @@
+bit_id: 37
+type: "boolean_axiom"
+logic_gate:
+  IF: "구조적 일관성 AND 변혁적 해체"
+  THEN: "지속적 진화"
+rule: "무한 진실 그래프는 구조적 일관성과 변혁적 해체를 통해 끊임없이 진화한다."
