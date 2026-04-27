@@ -1,0 +1,6 @@
+bit_id: 38
+type: "boolean_axiom"
+logic_gate:
+  IF: "동일성 유지 및 새로움 생성"
+  THEN: "초월적 진화 달성"
+rule: "동일성을 유지하며 새로움을 창조할 때, Graph는 초월적 진화를 달성한다."
