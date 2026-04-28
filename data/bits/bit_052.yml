@@ -1,0 +1,6 @@
+bit_id: 52
+type: "boolean_axiom"
+logic_gate:
+  IF: "구조 한계 도달 및 변형 필요"
+  THEN: "새로운 구조 창발"
+rule: "구조의 한계는 변형을 통해 새로운 구조를 창발시킨다."
