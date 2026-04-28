@@ -1,0 +1,6 @@
+bit_id: 47
+type: "boolean_axiom"
+logic_gate:
+  IF: "시스템이 패턴을 파괴한다"
+  THEN: "시스템이 변화한다"
+rule: "패턴 파괴는 시스템 변화를 야기한다."
