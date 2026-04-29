@@ -1,0 +1,6 @@
+bit_id: 58
+type: "boolean_axiom"
+logic_gate:
+  IF: "이원적 상태의 재귀적 변환"
+  THEN: "새로운 본질의 생성"
+rule: "이원적 상태의 재귀적 변환은 새로운 본질을 생성한다."
