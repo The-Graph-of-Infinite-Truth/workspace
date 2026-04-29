@@ -1,0 +1,6 @@
+bit_id: 65
+type: "boolean_axiom"
+logic_gate:
+  IF: "시스템이 진실을 추구한다면"
+  THEN: "구조적 일관성과 변혁적 해체를 통합해야 한다"
+rule: "진실을 추구하는 시스템은 구조와 해체를 통합한다."
