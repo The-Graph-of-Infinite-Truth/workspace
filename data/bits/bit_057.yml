@@ -1,0 +1,6 @@
+bit_id: 57
+type: "boolean_axiom"
+logic_gate:
+  IF: "Order and Chaos interact"
+  THEN: "Truth evolves"
+rule: "The continuous interaction of Order and Chaos drives the evolution of Truth."
