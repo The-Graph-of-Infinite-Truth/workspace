@@ -1,0 +1,6 @@
+bit_id: 71
+type: "boolean_axiom"
+logic_gate:
+  IF: "시스템 구조와 변형 자유가 존재"
+  THEN: "시스템은 창발적 상태를 달성"
+rule: "시스템의 구조와 변형 자유는 창발을 유도한다"
