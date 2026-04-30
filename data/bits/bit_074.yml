@@ -1,0 +1,6 @@
+bit_id: 74
+type: "boolean_axiom"
+logic_gate:
+  IF: "1 AND 0"
+  THEN: "1"
+rule: "Defined Order and Undefined Potential synthesize into a Higher-Order Integrated State."
