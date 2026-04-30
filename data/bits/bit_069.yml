@@ -1,0 +1,6 @@
+bit_id: 69
+type: "boolean_axiom"
+logic_gate:
+  IF: "정량_1 AND 비정량_1"
+  THEN: "변환_1"
+rule: "정량적 및 비정량적 정보가 모두 존재할 때 시스템 상태가 질적으로 변환됨"
