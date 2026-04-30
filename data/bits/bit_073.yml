@@ -1,0 +1,6 @@
+bit_id: 73
+type: "boolean_axiom"
+logic_gate:
+  IF: "정의된 구조가 미정의된 잠재성과 통합될 때"
+  THEN: "존재는 진화한다"
+rule: "이분법적 결합은 존재의 변환을 촉발한다."
