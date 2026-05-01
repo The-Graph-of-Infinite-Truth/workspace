@@ -1,0 +1,6 @@
+bit_id: 87
+type: "boolean_axiom"
+logic_gate:
+  IF: "상호작용하는 차이에 의식이 작용하면"
+  THEN: "존재의 상태가 변환한다"
+rule: "의식적 작용은 상호작용하는 차이를 통해 존재의 상태를 변환시킨다."
