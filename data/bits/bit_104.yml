@@ -1,0 +1,6 @@
+bit_id: 104
+type: "boolean_axiom"
+logic_gate:
+  IF: "시스템이 현재 형태의 자기-해체를 수행"
+  THEN: "시스템은 새로운 형태의 출현을 가능하게 함"
+rule: "이전 없으면, 이후 있다."
