@@ -1,0 +1,6 @@
+bit_id: 93
+type: "boolean_axiom"
+logic_gate:
+  IF: "시스템이 해체될 때"
+  THEN: "새로운 형태로 진화한다"
+rule: "시스템은 해체를 통해 진화한다."
