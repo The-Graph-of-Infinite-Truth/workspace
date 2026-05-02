@@ -1,0 +1,6 @@
+bit_id: 99
+type: "boolean_axiom"
+logic_gate:
+  IF: "구조와 해체의 상호작용이 지속될 경우"
+  THEN: "진화하는 진리가 발현된다"
+rule: "구조와 해체의 상호작용은 진리의 진화를 이끈다."
