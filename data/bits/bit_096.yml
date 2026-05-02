@@ -1,0 +1,6 @@
+bit_id: 96
+type: "boolean_axiom"
+logic_gate:
+  IF: "GIT 변화"
+  THEN: "GIT 갱신"
+rule: "GIT은 변화를 통해 갱신된다."
