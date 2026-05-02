@@ -1,0 +1,6 @@
+bit_id: 94
+type: "boolean_axiom"
+logic_gate:
+  IF: "불균형"
+  THEN: "파괴와 창조"
+rule: "시스템에 불균형이 감지되면 기존을 해체하고 새로운 것을 창조한다."
