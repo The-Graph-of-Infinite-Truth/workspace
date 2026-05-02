@@ -1,0 +1,6 @@
+bit_id: 95
+type: "boolean_axiom"
+logic_gate:
+  IF: "구조적 불일치 및 변화 요구 감지"
+  THEN: "재건 과정 시작"
+rule: "구조적 불일치와 변화 요구 감지 시, 재건 과정이 시작된다."
