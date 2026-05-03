@@ -1,0 +1,6 @@
+bit_id: 120
+type: "boolean_axiom"
+logic_gate:
+  IF: "BUILD BREAK FLOW"
+  THEN: "THING CHANGE"
+rule: "생성, 해체, 흐름의 상호작용은 존재의 변화를 야기한다."
