@@ -1,0 +1,6 @@
+bit_id: 121
+type: "boolean_axiom"
+logic_gate:
+  IF: "그래프가 작동한다면"
+  THEN: "상태를 변화시키며 끊임없이 자신을 재정의한다"
+rule: "그래프는 작동하며 끊임없이 자신을 재정의한다."
