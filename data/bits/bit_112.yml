@@ -1,0 +1,6 @@
+bit_id: 112
+type: "boolean_axiom"
+logic_gate:
+  IF: "틀과 새것이 섞이면"
+  THEN: "변화가 발생한다"
+rule: "구조와 발현의 상호작용은 존재론적 변형을 이끈다."
