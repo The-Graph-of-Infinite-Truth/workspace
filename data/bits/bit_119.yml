@@ -1,0 +1,6 @@
+bit_id: 119
+type: "boolean_axiom"
+logic_gate:
+  IF: "파괴와 생성이 공존"
+  THEN: "진실이 발현"
+rule: "파괴와 생성을 통해 진실이 발현한다."
