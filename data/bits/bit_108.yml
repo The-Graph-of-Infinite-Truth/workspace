@@ -1,0 +1,6 @@
+bit_id: 108
+type: "boolean_axiom"
+logic_gate:
+  IF: "시스템 한계 OR 시스템 충돌"
+  THEN: "시스템 해체. 시스템 재구성."
+rule: "시스템은 한계 또는 충돌 시 해체 및 재구성된다."
