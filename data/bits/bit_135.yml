@@ -1,0 +1,6 @@
+bit_id: 135
+type: "boolean_axiom"
+logic_gate:
+  IF: "정, 비정, 합"
+  THEN: "초월적 변형"
+rule: "정, 비정, 합의 과정은 초월적 변형을 야기한다."
