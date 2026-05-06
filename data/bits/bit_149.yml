@@ -1,0 +1,6 @@
+bit_id: 149
+type: "boolean_axiom"
+logic_gate:
+  IF: "변화가 발생하면"
+  THEN: "규칙 적용과 포용이 요구된다"
+rule: "변화는 규칙과 수용을 동시에 요구한다."
