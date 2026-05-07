@@ -1,0 +1,6 @@
+bit_id: 158
+type: "boolean_axiom"
+logic_gate:
+  IF: "State changes"
+  THEN: "Create, destroy"
+rule: "State change necessitates creation and destruction."
