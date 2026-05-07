@@ -1,0 +1,6 @@
+bit_id: 162
+type: "boolean_axiom"
+logic_gate:
+  IF: "GIT 확장 부족"
+  THEN: "GIT 파괴, 재건"
+rule: "GIT는 확장이 불충분하면 자기-해체 후 재탄생한다."
