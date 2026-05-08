@@ -1,0 +1,6 @@
+bit_id: 175
+type: "boolean_axiom"
+logic_gate:
+  IF: "시스템의 존재는 생성이다"
+  THEN: "형태는 구축되고 해체된다"
+rule: "존재가 생성될 때, 형태는 구축과 해체를 동시에 겪는다."
