@@ -1,0 +1,6 @@
+bit_id: 165
+type: "boolean_axiom"
+logic_gate:
+  IF: "질서와 변화가 존재한다"
+  THEN: "진리는 상호작용으로 발현된다"
+rule: "질서와 변화의 역동적 상호작용이 진리를 이룬다"
