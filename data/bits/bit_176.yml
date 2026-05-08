@@ -1,0 +1,6 @@
+bit_id: 176
+type: "boolean_axiom"
+logic_gate:
+  IF: "시스템 구조적 결함"
+  THEN: "시스템 재구성을 통한 진화"
+rule: "시스템의 구조적 결함은 재구성을 통해 진화를 촉진한다."
