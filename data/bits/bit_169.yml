@@ -1,0 +1,6 @@
+bit_id: 169
+type: "boolean_axiom"
+logic_gate:
+  IF: "정의와 잠재성의 상호작용"
+  THEN: "진리 발현"
+rule: "정의와 잠재성의 상호작용이 진리를 발현시킨다"
