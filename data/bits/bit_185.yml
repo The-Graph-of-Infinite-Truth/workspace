@@ -1,0 +1,6 @@
+bit_id: 185
+type: "boolean_axiom"
+logic_gate:
+  IF: "그래프의 구조와 상태에 변화가 발생하면"
+  THEN: "그래프의 진실이 진화하고 값이 갱신된다"
+rule: "그래프의 변화는 진실과 값의 진화를 유발한다."
