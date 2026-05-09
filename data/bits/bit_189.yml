@@ -1,0 +1,6 @@
+bit_id: 189
+type: "boolean_axiom"
+logic_gate:
+  IF: "GIT이 모순적 요소를 감지하면"
+  THEN: "GIT은 새로운 현실을 창조한다"
+rule: "모순의 교차점에서 새로운 현실이 탄생한다."
