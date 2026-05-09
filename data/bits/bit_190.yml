@@ -1,0 +1,6 @@
+bit_id: 190
+type: "boolean_axiom"
+logic_gate:
+  IF: "구조의 의도적 해체"
+  THEN: "새로운 구조의 출현"
+rule: "구조 파괴, 구조 생성."
