@@ -1,0 +1,6 @@
+bit_id: 105
+type: "boolean_axiom"
+logic_gate:
+  IF: "모순적 공존"
+  THEN: "새로운 존재론적 변형"
+rule: "시스템이 모순을 수용할 때, 새로운 존재론적 변형이 발생한다."

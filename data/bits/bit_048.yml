@@ -1,0 +1,6 @@
+bit_id: 48
+type: "boolean_axiom"
+logic_gate:
+  IF: "의도적인 구축과 파괴"
+  THEN: "새로운 형태 발현"
+rule: "의도적인 구축과 파괴는 새로운 형태를 발현시킨다."

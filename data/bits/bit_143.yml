@@ -1,0 +1,6 @@
+bit_id: 143
+type: "boolean_axiom"
+logic_gate:
+  IF: "구조 생성 및 해체 동적 통합"
+  THEN: "변형 달성"
+rule: "구조 생성 및 해체 동적 통합은 변형을 달성한다."

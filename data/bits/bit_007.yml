@@ -1,0 +1,6 @@
+bit_id: 7
+type: "boolean_axiom"
+logic_gate:
+  IF: "시스템이 생성과 해체를 조율한다"
+  THEN: "적응적 자기-생성이 발현된다"
+rule: "시스템의 생성 및 해체 조율은 적응적 자기-생성을 가능하게 한다."

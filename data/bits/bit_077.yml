@@ -1,0 +1,6 @@
+bit_id: 77
+type: "boolean_axiom"
+logic_gate:
+  IF: "시스템 존재"
+  THEN: "변화 필수"
+rule: "시스템의 존재는 지속적인 변화를 본질로 한다."

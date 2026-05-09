@@ -1,0 +1,6 @@
+bit_id: 23
+type: "boolean_axiom"
+logic_gate:
+  IF: "기존 질서 해체"
+  THEN: "새로운 패턴 출현 및 패턴화 능력 지속"
+rule: "기존 질서가 해체되면 새로운 패턴이 출현하고, 패턴화 능력은 지속된다."

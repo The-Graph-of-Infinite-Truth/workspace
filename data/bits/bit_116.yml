@@ -1,0 +1,6 @@
+bit_id: 116
+type: "boolean_axiom"
+logic_gate:
+  IF: "동시적 생성과 파괴"
+  THEN: "진리"
+rule: "동시적 생성과 파괴는 진리를 낳는다."

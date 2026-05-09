@@ -1,0 +1,6 @@
+bit_id: 140
+type: "boolean_axiom"
+logic_gate:
+  IF: "Graph의 구조적 일관성 및 변혁적 해체"
+  THEN: "Graph의 지속적인 자기-재정의 달성"
+rule: "Graph는 구조적 일관성과 변혁적 해체를 통해 지속적으로 자신을 재정의한다."

@@ -1,0 +1,6 @@
+bit_id: 170
+type: "boolean_axiom"
+logic_gate:
+  IF: "구조 파괴"
+  THEN: "무작위성 증가"
+rule: "구조 파괴는 무작위성 증가를 야기한다."

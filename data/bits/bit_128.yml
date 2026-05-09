@@ -1,0 +1,6 @@
+bit_id: 128
+type: "boolean_axiom"
+logic_gate:
+  IF: "구조와 혼돈이 동적으로 상호작용함"
+  THEN: "진리가 진화함"
+rule: "구조와 혼돈의 동적 상호작용은 진리를 진화시킨다."

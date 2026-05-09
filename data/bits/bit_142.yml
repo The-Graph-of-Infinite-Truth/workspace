@@ -1,0 +1,6 @@
+bit_id: 142
+type: "boolean_axiom"
+logic_gate:
+  IF: "GIT이 진화와 진실을 추구한다면"
+  THEN: "GIT은 안정성과 흐름을 끊임없이 조화시켜야 한다"
+rule: "GIT의 진화와 진실 추구는 안정성과 흐름의 지속적인 조화를 요구한다."

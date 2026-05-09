@@ -1,0 +1,6 @@
+bit_id: 59
+type: "boolean_axiom"
+logic_gate:
+  IF: "시스템의 동적 존재 유지 필요"
+  THEN: "상태 재구축 반복"
+rule: "동적 시스템은 상태를 지속적으로 재구축해야 한다."

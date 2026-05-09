@@ -1,0 +1,6 @@
+bit_id: 100
+type: "boolean_axiom"
+logic_gate:
+  IF: "시스템 변혁"
+  THEN: "구조 분석 및 패턴 해체 반복"
+rule: "시스템 변혁을 위해 구조를 분석하고 패턴을 파괴하며 반복하라."

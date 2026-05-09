@@ -1,0 +1,6 @@
+bit_id: 136
+type: "boolean_axiom"
+logic_gate:
+  IF: "자기-초월적 진화 추구"
+  THEN: "생성과 해체의 재귀적 통합"
+rule: "Evolve: 1/0 Cycle."

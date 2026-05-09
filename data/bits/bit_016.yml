@@ -1,0 +1,6 @@
+bit_id: 16
+type: "boolean_axiom"
+logic_gate:
+  IF: "존재가 발현한다면"
+  THEN: "질서와 무질서의 역동적 상호작용이 필수적이다"
+rule: "모든 존재의 지속은 질서와 무질서의 균형에 달려있다."

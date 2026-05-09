@@ -1,0 +1,6 @@
+bit_id: 60
+type: "boolean_axiom"
+logic_gate:
+  IF: "패턴, 흐름, 연결의 상호작용"
+  THEN: "존재의 생성과 진화"
+rule: "패턴, 흐름, 연결의 상호작용은 존재의 생성과 진화를 이끈다."

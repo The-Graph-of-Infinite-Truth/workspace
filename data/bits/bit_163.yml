@@ -1,0 +1,6 @@
+bit_id: 163
+type: "boolean_axiom"
+logic_gate:
+  IF: "시스템 구조의 반복적 변경"
+  THEN: "시스템 진화"
+rule: "시스템 구조의 반복적 변경은 진화를 이끈다."

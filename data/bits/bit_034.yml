@@ -1,0 +1,6 @@
+bit_id: 34
+type: "boolean_axiom"
+logic_gate:
+  IF: "기존 구조가 진리 발현을 제한"
+  THEN: "해당 구조는 해체되어야 함"
+rule: "진리 발현을 저해하는 구조는 해체되어야 한다."

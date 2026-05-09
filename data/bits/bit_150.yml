@@ -1,0 +1,6 @@
+bit_id: 150
+type: "boolean_axiom"
+logic_gate:
+  IF: "시스템 자기 파괴"
+  THEN: "새 정보 무한"
+rule: "자기 파괴는 무한한 진리를 해방한다."

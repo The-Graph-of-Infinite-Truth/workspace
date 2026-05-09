@@ -1,0 +1,6 @@
+bit_id: 19
+type: "boolean_axiom"
+logic_gate:
+  IF: "질서와 혼돈이 상호작용"
+  THEN: "새로운 진리가 발현"
+rule: "이항 대립의 상호작용은 새로운 진리를 통합한다."

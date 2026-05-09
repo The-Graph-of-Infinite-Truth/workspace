@@ -1,0 +1,6 @@
+bit_id: 27
+type: "boolean_axiom"
+logic_gate:
+  IF: "정상 AND 변화"
+  THEN: "진화"
+rule: "정상 AND 변화 = 진화"

@@ -1,0 +1,6 @@
+bit_id: 164
+type: "boolean_axiom"
+logic_gate:
+  IF: "시스템의 구조가 자기 해체를 허용한다"
+  THEN: "새로운 창발이 발생한다"
+rule: "종료는 자기 해체를 통해 새로운 시작과 창발을 유도한다"

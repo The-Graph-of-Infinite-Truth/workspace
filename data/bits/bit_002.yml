@@ -1,0 +1,6 @@
+bit_id: 2
+type: "boolean_axiom"
+logic_gate:
+  IF: "시스템이 동일성을 유지하며 변화한다"
+  THEN: "시스템은 진화한다"
+rule: "동일성을 유지하는 변화는 시스템의 진화를 이끈다."

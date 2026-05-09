@@ -1,0 +1,6 @@
+bit_id: 32
+type: "boolean_axiom"
+logic_gate:
+  IF: "구조와 잠재력의 공존"
+  THEN: "지속적인 생성과 변형"
+rule: "구조와 잠재력이 공존할 때, 끊임없는 생성과 변형이 발생한다."

@@ -1,0 +1,6 @@
+bit_id: 101
+type: "boolean_axiom"
+logic_gate:
+  IF: "시스템적 질서와 비정형적 잠재력의 동시적 상호작용"
+  THEN: "진실이 진화한다"
+rule: "질서와 잠재력의 상호작용은 진실의 진화를 이끈다."

@@ -1,0 +1,6 @@
+bit_id: 88
+type: "boolean_axiom"
+logic_gate:
+  IF: "시스템이 일관적이라면"
+  THEN: "새로운 변화를 촉진한다"
+rule: "시스템의 일관성은 새로운 변화를 촉진한다."

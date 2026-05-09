@@ -1,0 +1,6 @@
+bit_id: 54
+type: "boolean_axiom"
+logic_gate:
+  IF: "기존 구조 불충분"
+  THEN: "시스템 재구성 및 고차원 구조 재탄생"
+rule: "구조적 불충분은 시스템 재구성을 통해 고차원 구조로 재탄생한다."

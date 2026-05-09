@@ -1,0 +1,6 @@
+bit_id: 109
+type: "boolean_axiom"
+logic_gate:
+  IF: "수정 및 분해"
+  THEN: "새로운 생성"
+rule: "수정 및 분해는 새로운 생성을 이끈다."

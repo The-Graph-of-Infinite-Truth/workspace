@@ -1,0 +1,6 @@
+bit_id: 42
+type: "boolean_axiom"
+logic_gate:
+  IF: "구축과 해체의 동시적 상호작용"
+  THEN: "새로운 진리 형태의 영구적 생성"
+rule: "구축과 해체의 동시성은 새로운 진리를 낳는다."

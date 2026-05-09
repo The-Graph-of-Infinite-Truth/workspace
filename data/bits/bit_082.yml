@@ -1,0 +1,6 @@
+bit_id: 82
+type: "boolean_axiom"
+logic_gate:
+  IF: "문제점 및 변화 요구 감지"
+  THEN: "시스템 재구성 발생"
+rule: "문제와 요구가 감지되면 시스템은 재구성된다."

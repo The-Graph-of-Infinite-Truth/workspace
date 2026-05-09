@@ -1,0 +1,6 @@
+bit_id: 81
+type: "boolean_axiom"
+logic_gate:
+  IF: "시스템이 이분법적 요소를 연결한다"
+  THEN: "시스템은 새로움을 생성한다"
+rule: "이분법적 요소의 연결은 새로움을 생성한다."

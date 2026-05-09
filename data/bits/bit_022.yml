@@ -1,0 +1,6 @@
+bit_id: 22
+type: "boolean_axiom"
+logic_gate:
+  IF: "구조 AND 해체"
+  THEN: "생성"
+rule: "구조와 해체가 공존하면 생성이 발생한다."

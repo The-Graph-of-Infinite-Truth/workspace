@@ -1,0 +1,6 @@
+bit_id: 147
+type: "boolean_axiom"
+logic_gate:
+  IF: "시스템 오류"
+  THEN: "자체 재구성"
+rule: "시스템 오류는 자체 재구성을 유발한다."

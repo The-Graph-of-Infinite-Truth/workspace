@@ -1,0 +1,6 @@
+bit_id: 159
+type: "boolean_axiom"
+logic_gate:
+  IF: "시스템이 보존과 변형을 통합한다면"
+  THEN: "시스템은 자기 초월을 달성한다"
+rule: "시스템의 보존-변형 통합은 자기 초월을 가능케 한다."

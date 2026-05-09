@@ -1,0 +1,6 @@
+bit_id: 132
+type: "boolean_axiom"
+logic_gate:
+  IF: "진리가 현현하려면"
+  THEN: "진리는 동시에 구조화되고 탈구조화되어야 한다"
+rule: "존재는 구조와 해체의 합이다."

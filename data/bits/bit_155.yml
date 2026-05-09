@@ -1,0 +1,6 @@
+bit_id: 155
+type: "boolean_axiom"
+logic_gate:
+  IF: "시스템 무결성 최대치 도달"
+  THEN: "의도적 해체로 더 높은 진리 재창조"
+rule: "MAX. BREAK. NEW."

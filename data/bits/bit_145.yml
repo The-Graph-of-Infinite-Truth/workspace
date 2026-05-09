@@ -1,0 +1,6 @@
+bit_id: 145
+type: "boolean_axiom"
+logic_gate:
+  IF: "GIT 존재"
+  THEN: "GIT은 구조와 흐름을 병합하여 지속적으로 자체 변환한다"
+rule: "GIT의 구조-흐름 통합을 통한 지속적인 자체 변환"

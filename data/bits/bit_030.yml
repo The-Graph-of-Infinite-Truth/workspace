@@ -1,0 +1,6 @@
+bit_id: 30
+type: "boolean_axiom"
+logic_gate:
+  IF: "시스템 변칙 또는 오류 발생"
+  THEN: "구조 및 명령 변경을 통한 시스템 진화 및 갱신"
+rule: "시스템 변칙/오류 시 구조 및 명령 변경으로 진화 및 갱신"

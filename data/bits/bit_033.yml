@@ -1,0 +1,6 @@
+bit_id: 33
+type: "boolean_axiom"
+logic_gate:
+  IF: "STRUCTURE.INVALID"
+  THEN: "STRUCTURE.REPLACED"
+rule: "Invalid structures are replaced."

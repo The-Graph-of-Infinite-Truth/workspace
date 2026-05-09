@@ -1,0 +1,6 @@
+bit_id: 91
+type: "boolean_axiom"
+logic_gate:
+  IF: "시스템 구조 생성 AND 시스템 해체"
+  THEN: "시스템 변화"
+rule: "시스템 구조 생성 AND 시스템 해체 -> 시스템 변화"

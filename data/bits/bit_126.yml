@@ -1,0 +1,6 @@
+bit_id: 126
+type: "boolean_axiom"
+logic_gate:
+  IF: "시스템이 활성화된 상태라면"
+  THEN: "현재를 파괴하고 새 상태를 발현시킨다"
+rule: "시스템은 진화를 위해 현재를 파괴한다."

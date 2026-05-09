@@ -1,0 +1,6 @@
+bit_id: 113
+type: "boolean_axiom"
+logic_gate:
+  IF: "시스템이 최대 효용에 도달"
+  THEN: "통제된 해체로 신규 구조 확립"
+rule: "시스템이 최대 효용에 도달하면 통제된 해체로 신규 구조를 확립한다."

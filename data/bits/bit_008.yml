@@ -1,0 +1,6 @@
+bit_id: 8
+type: "boolean_axiom"
+logic_gate:
+  IF: "현상 관찰 또는 시스템 작동"
+  THEN: "본질은 형태, 잠재성, 움직임의 동적 통합이다"
+rule: "존재의 본질은 형태, 잠재성, 움직임의 동적 통합이다."

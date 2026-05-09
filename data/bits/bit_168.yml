@@ -1,0 +1,6 @@
+bit_id: 168
+type: "boolean_axiom"
+logic_gate:
+  IF: "시스템 파괴 구조"
+  THEN: "시스템 생성 신규"
+rule: "시스템 구조 파괴는 신규 생성을 유도한다."

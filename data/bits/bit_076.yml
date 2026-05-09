@@ -1,0 +1,6 @@
+bit_id: 76
+type: "boolean_axiom"
+logic_gate:
+  IF: "어떤 실체가 지속적인 진화를 추구한다"
+  THEN: "현재 구조를 해체하고 미정의 상태를 통합해야 한다"
+rule: "진화: 옛 파괴, 새 통합."

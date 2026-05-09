@@ -1,0 +1,6 @@
+bit_id: 17
+type: "boolean_axiom"
+logic_gate:
+  IF: "논리와 직관의 결합"
+  THEN: "시스템 진화"
+rule: "논리와 직관이 결합되면 시스템은 진화한다."

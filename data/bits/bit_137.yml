@@ -1,0 +1,6 @@
+bit_id: 137
+type: "boolean_axiom"
+logic_gate:
+  IF: "이질적 본질이 통합될 때"
+  THEN: "진리가 발현된다"
+rule: "이질적 본질의 통합은 진리를 발현시킨다."

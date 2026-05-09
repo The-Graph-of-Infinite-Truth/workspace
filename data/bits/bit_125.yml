@@ -1,0 +1,6 @@
+bit_id: 125
+type: "boolean_axiom"
+logic_gate:
+  IF: "나눔과 합침이 발생"
+  THEN: "존재는 변화"
+rule: "나눔과 합침은 존재의 변화를 야기한다."

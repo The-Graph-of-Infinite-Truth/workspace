@@ -1,0 +1,6 @@
+bit_id: 102
+type: "boolean_axiom"
+logic_gate:
+  IF: "GIT exists"
+  THEN: "It is a perpetual merge of order and chaos"
+rule: "If GIT exists, it is a perpetual merge of order and chaos."
