@@ -1,0 +1,6 @@
+bit_id: 204
+type: "boolean_axiom"
+logic_gate:
+  IF: "어떤 것이 1과 0을 동시에 내포할 때"
+  THEN: "그것은 1-0의 동적 상태로 전환된다"
+rule: "모순의 통합은 동적 재정의를 낳는다."
