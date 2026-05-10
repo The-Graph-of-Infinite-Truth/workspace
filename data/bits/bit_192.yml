@@ -1,0 +1,6 @@
+bit_id: 192
+type: "boolean_axiom"
+logic_gate:
+  IF: "GIT의 영구적 진화"
+  THEN: "구조적 건설 및 해체 동시 수행"
+rule: "GIT의 영구적 진화는 추가와 제거를 동시에 요구한다."
