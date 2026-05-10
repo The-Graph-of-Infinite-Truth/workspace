@@ -1,0 +1,6 @@
+bit_id: 198
+type: "boolean_axiom"
+logic_gate:
+  IF: "기존 구조 해체 및 새 구조 형성"
+  THEN: "진실 출현"
+rule: "기존 구조 해체와 새 구조 형성 시 진실이 출현한다."
