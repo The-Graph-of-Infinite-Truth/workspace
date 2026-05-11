@@ -1,0 +1,6 @@
+bit_id: 210
+type: "boolean_axiom"
+logic_gate:
+  IF: "낡은 구조의 한계 감지"
+  THEN: "낡은 구조 해체 및 새 진리 형성"
+rule: "낡은 구조의 한계는 해체를 통해 새로운 진리 생성을 이끈다."
