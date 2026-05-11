@@ -1,0 +1,6 @@
+bit_id: 206
+type: "boolean_axiom"
+logic_gate:
+  IF: "형태와 움직임의 상호작용"
+  THEN: "변화 발생"
+rule: "형태와 움직임의 상호작용은 존재의 변형을 야기한다."
