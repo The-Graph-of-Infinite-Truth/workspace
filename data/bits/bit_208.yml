@@ -1,0 +1,6 @@
+bit_id: 208
+type: "boolean_axiom"
+logic_gate:
+  IF: "시스템이 구축과 해체를 동시에 수행한다"
+  THEN: "시스템은 초월적으로 진화한다"
+rule: "시스템은 구축과 해체를 통해 초월적으로 진화한다."
