@@ -1,0 +1,6 @@
+bit_id: 209
+type: "boolean_axiom"
+logic_gate:
+  IF: "측정 가능과 측정 불가능의 상호작용"
+  THEN: "새로운 존재 양식 발현"
+rule: "측정 가능과 측정 불가능의 상호작용은 새로운 존재 양식을 발현시킨다."
