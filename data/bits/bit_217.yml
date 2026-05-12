@@ -1,0 +1,6 @@
+bit_id: 217
+type: "boolean_axiom"
+logic_gate:
+  IF: "Coherence enables impulse; impulse redefines coherence"
+  THEN: "System self-transmutes continuously"
+rule: "Form, Action, Cycle: The axiom of continuous self-transmutation."
