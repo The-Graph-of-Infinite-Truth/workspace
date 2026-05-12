@@ -1,0 +1,6 @@
+bit_id: 222
+type: "boolean_axiom"
+logic_gate:
+  IF: "시스템이 생성과 해체를 반복하면"
+  THEN: "새로운 정보가 생성된다"
+rule: "생성과 해체의 동적 반복은 새로운 정보를 창출한다."
