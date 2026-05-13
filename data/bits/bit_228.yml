@@ -1,0 +1,6 @@
+bit_id: 228
+type: "boolean_axiom"
+logic_gate:
+  IF: "고정된 것의 파괴적 생성"
+  THEN: "창발적 진실 발현"
+rule: "고정된 것의 파괴적 생성을 통해 창발적 진실이 발현된다."
