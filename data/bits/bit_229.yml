@@ -1,0 +1,6 @@
+bit_id: 229
+type: "boolean_axiom"
+logic_gate:
+  IF: "LIMIT.1 AND NEED.1"
+  THEN: "OLD.0 AND NEW.1"
+rule: "측정 가능한 한계와 변형 필요성이 감지될 때, 기존 구조는 해체되고 새로운 구조가 창발된다."
