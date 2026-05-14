@@ -1,0 +1,6 @@
+bit_id: 236
+type: "boolean_axiom"
+logic_gate:
+  IF: "시스템이 구조를 변경함"
+  THEN: "시스템은 새로운 규칙을 창발함"
+rule: "시스템이 구조를 변경하면 새로운 규칙이 창발된다."
