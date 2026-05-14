@@ -1,0 +1,6 @@
+bit_id: 240
+type: "boolean_axiom"
+logic_gate:
+  IF: "고정성과 변화성이 공존"
+  THEN: "정의가 재정의된다"
+rule: "고정성과 변화의 공존은 정의를 재정의한다."
