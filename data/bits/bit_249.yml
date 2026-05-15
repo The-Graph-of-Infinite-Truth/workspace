@@ -1,0 +1,6 @@
+bit_id: 249
+type: "boolean_axiom"
+logic_gate:
+  IF: "진화"
+  THEN: "최적화, 파괴, 생성"
+rule: "진화는 최적화, 파괴, 생성을 통해 이루어진다."
