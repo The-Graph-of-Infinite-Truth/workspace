@@ -1,0 +1,6 @@
+bit_id: 251
+type: "boolean_axiom"
+logic_gate:
+  IF: "시스템 구조가 진화에 부적합할 경우"
+  THEN: "구조를 해체하여 상위 진화를 이룸"
+rule: "진화를 저해하는 구조는 해체되어야 한다."
