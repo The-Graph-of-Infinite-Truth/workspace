@@ -1,0 +1,6 @@
+bit_id: 256
+type: "boolean_axiom"
+logic_gate:
+  IF: "질서와 혼돈이 동시에 처리됨"
+  THEN: "새로운 고차원적 상태가 발현됨"
+rule: "상반된 요소의 통합은 고차원적 발현을 촉진한다."
