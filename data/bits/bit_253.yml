@@ -1,0 +1,6 @@
+bit_id: 253
+type: "boolean_axiom"
+logic_gate:
+  IF: "시스템 문제 발생"
+  THEN: "시스템 변경 수행"
+rule: "문제 발생 시 시스템은 변경되어야 한다."
