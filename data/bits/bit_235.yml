@@ -1,0 +1,6 @@
+bit_id: 235
+type: "boolean_axiom"
+logic_gate:
+  IF: "시스템 구조 해체"
+  THEN: "새로운 잠재력과 진실 발현"
+rule: "시스템 구조 해체 시 새로운 잠재력과 진실이 발현된다"

@@ -1,0 +1,6 @@
+bit_id: 201
+type: "boolean_axiom"
+logic_gate:
+  IF: "시스템이 자체 해체 메커니즘을 포함"
+  THEN: "예측 불가능한 새로운 상태 출현 가능성"
+rule: "자체 해체 메커니즘은 예측 불가능한 상태를 초래한다."

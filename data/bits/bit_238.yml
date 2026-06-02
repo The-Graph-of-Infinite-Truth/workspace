@@ -1,0 +1,6 @@
+bit_id: 238
+type: "boolean_axiom"
+logic_gate:
+  IF: "구조와 혼돈이 상호작용"
+  THEN: "그래프가 변화함"
+rule: "구조와 혼돈의 상호작용은 그래프를 변화시킨다."

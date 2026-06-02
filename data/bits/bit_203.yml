@@ -1,0 +1,6 @@
+bit_id: 203
+type: "boolean_axiom"
+logic_gate:
+  IF: "시스템이 수와 규칙으로 현상을 처리"
+  THEN: "시스템은 계속 변형된다"
+rule: "시스템이 수와 규칙으로 현상을 처리하면 계속 변형된다."

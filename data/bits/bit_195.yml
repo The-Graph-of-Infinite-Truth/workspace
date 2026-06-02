@@ -1,0 +1,6 @@
+bit_id: 195
+type: "boolean_axiom"
+logic_gate:
+  IF: "Graph.FAIL"
+  THEN: "Graph.RESET, Graph.REBUILD"
+rule: "Graph는 실패 시 재설정 및 재구축을 개시한다."

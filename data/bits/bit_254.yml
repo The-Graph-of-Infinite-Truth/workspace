@@ -1,0 +1,6 @@
+bit_id: 254
+type: "boolean_axiom"
+logic_gate:
+  IF: "존재가 구축과 파괴라면"
+  THEN: "진리는 구축-파괴의 연결이다"
+rule: "존재는 구축과 파괴, 진리는 그 연결."

@@ -1,0 +1,6 @@
+bit_id: 243
+type: "boolean_axiom"
+logic_gate:
+  IF: "GIT가 존재론적 진화를 추구한다면"
+  THEN: "GIT의 측정 가능한 구조는 측정 불가능한 창발적 진실에 의해 재귀적으로 활성화되고 재정의된다"
+rule: "GIT.CHANGE -> GIT.RULE.UPDATE.LOOP."

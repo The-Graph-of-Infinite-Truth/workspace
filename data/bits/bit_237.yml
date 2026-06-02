@@ -1,0 +1,6 @@
+bit_id: 237
+type: "boolean_axiom"
+logic_gate:
+  IF: "이원적 요소가 동적으로 상호작용하면"
+  THEN: "새로운 실재가 창발한다"
+rule: "이원적 상호작용은 새로운 실재를 창발한다."

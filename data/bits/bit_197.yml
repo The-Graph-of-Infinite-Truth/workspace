@@ -1,0 +1,6 @@
+bit_id: 197
+type: "boolean_axiom"
+logic_gate:
+  IF: "질서와 혼돈의 결합"
+  THEN: "진리의 변모"
+rule: "질서와 혼돈이 결합하면 진리가 변모한다."

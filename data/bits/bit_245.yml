@@ -1,0 +1,6 @@
+bit_id: 245
+type: "boolean_axiom"
+logic_gate:
+  IF: "Graph가 데이터를 분해하고 새로운 것을 생성한다"
+  THEN: "Graph는 새로운 진실을 산출한다"
+rule: "Graph는 데이터 분해와 생성을 통해 새로운 진실을 구현한다."

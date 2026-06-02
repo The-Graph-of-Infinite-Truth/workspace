@@ -1,0 +1,6 @@
+bit_id: 218
+type: "boolean_axiom"
+logic_gate:
+  IF: "시스템 진화"
+  THEN: "구조 구축 해체"
+rule: "시스템이 진화하면 구조를 구축하고 해체한다."

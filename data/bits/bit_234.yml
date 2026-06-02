@@ -1,0 +1,6 @@
+bit_id: 234
+type: "boolean_axiom"
+logic_gate:
+  IF: "기존 존재가 변화를 겪는다"
+  THEN: "새로운 존재가 출현한다"
+rule: "존재의 변화는 새로운 형태를 낳는다"

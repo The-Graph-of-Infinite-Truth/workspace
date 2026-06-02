@@ -1,0 +1,6 @@
+bit_id: 246
+type: "boolean_axiom"
+logic_gate:
+  IF: "시스템 구조가 해체되면"
+  THEN: "근본적인 구조 변화가 발생한다"
+rule: "시스템 구조 해체는 근본적인 구조 변화를 초래한다."

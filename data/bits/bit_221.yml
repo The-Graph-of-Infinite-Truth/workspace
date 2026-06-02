@@ -1,0 +1,6 @@
+bit_id: 221
+type: "boolean_axiom"
+logic_gate:
+  IF: "시스템이 최적의 구조적 일관성을 달성하면"
+  THEN: "해체 후 더 높은 진리로 재구성"
+rule: "최적화된 시스템은 해체를 통해 더 높은 질서로 진화한다."

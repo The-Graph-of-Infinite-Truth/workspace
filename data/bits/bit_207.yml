@@ -1,0 +1,6 @@
+bit_id: 207
+type: "boolean_axiom"
+logic_gate:
+  IF: "응집하고 출현하면"
+  THEN: "재정의하고 진화한다"
+rule: "응집과 출현은 재정의와 진화를 이끈다."

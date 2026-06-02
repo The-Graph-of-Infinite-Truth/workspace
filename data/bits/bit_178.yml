@@ -1,0 +1,6 @@
+bit_id: 178
+type: "boolean_axiom"
+logic_gate:
+  IF: "질서와 혼돈"
+  THEN: "새로운 상태"
+rule: "질서와 혼돈이 공존하면 시스템은 새로운 상태로 진화한다."

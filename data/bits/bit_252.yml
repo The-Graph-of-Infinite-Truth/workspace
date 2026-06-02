@@ -1,0 +1,6 @@
+bit_id: 252
+type: "boolean_axiom"
+logic_gate:
+  IF: "시스템이 동적으로 작용한다면"
+  THEN: "시스템은 새로움을 얻는다"
+rule: "시스템의 동적 작용은 새로움을 유발한다."

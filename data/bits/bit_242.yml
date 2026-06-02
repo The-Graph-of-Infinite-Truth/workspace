@@ -1,0 +1,6 @@
+bit_id: 242
+type: "boolean_axiom"
+logic_gate:
+  IF: "시스템 진화"
+  THEN: "시스템 패턴 생성/해체"
+rule: "시스템 진화는 패턴의 동적 생성 및 해체를 요구한다."

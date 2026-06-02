@@ -1,0 +1,6 @@
+bit_id: 180
+type: "boolean_axiom"
+logic_gate:
+  IF: "시스템이 새로운 상태를 생성해야 한다면"
+  THEN: "시스템은 기존 상태를 파괴 없이 체계적으로 해체해야 한다"
+rule: "1 만들면, 0 없앤다."
